@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryyy's homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body style="overflow: hidden;"> 
+    <div class="container">
+        <nav>
+            <ul class="nav-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="myprojects.html">My Projects</a></li>
+            </ul>
+            <div class="social">
+                <!-- Odkazy na socialni site + jejich loga pomoci Font-Awesome -->
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-instagram-square"></i></a>
+                <a href="#"><i class="fab fa-twitter-square"></i></a>
+            </div>
+        </nav>
+
+
+        <div class="wrapper">
+            <div class="cols cols0">
+                <span class="topline">I can</span>
+                <h1>help you <span class="multitext">.</span></h1>
+                <p>You can find my working experince under My Projects section or you can contact me and I will reach you. </p>
+               <div id="contact-modal" class="modal">
+                    <div id="modal-content">
+                        <div id="modal-header">
+                            <span class="close-modal">&times;</span>
+                            <h2>Contact me</h2>
+                        </div>
+                        <div id="modal-body">
+                            <h3>Leave your message here:</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="first-name">First Name:</label>
+                                    <input type="text" placeholder="Enter your First name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name:</label>
+                                    <input type="text" placeholder="Enter your Last name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail:</label>
+                                    <!-- Validuje to jestli to je ve forme mailu nebo ne -->
+                                    <input type="email" placeholder="Enter your E-mail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <textarea placeholder="Enter your Message"></textarea>
+                                </div>
+                                <input type="submit" value="Send Message">
+                            </form>
+                        </div>
+                        <div id="modal-footer">
+                            <h3>made by &copy; Maryyy</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="modal-open">Contact Me 💡</button>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <!-- Script pro Pop-up "vyjizdejici" menu -->
+    <script src="main.js"></script>
+
+    <!-- Knihovna pro Typing animation: Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script> 
+    <script>
+        var typingEffect = new Typed(".multitext", {
+            strings: ["with IT", "with Web dev", "with Cybersec", "with Info Sec", "with IT Gov", "with Modeling", "with many other things..."],
+            loop: true,
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 1500,
+        })
+    // Script pro tu animaci psani
+    </script>
+</body>
+
+</html>
