@@ -1,375 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap'); // Pekny font od Googlu -- Poppins
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap");
+
+$primary-color: #7f00ff;
+$dark-color: #000;
+$text-color: #333;
+$font-main: "Poppins", sans-serif;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-main;
+}
+
+body {
+  background-color: #fff;
+  color: $text-color;
 }
 
 .container {
-    width: 100%;
-    min-height: 100vh;
-    background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.logo {
-    width: 200px;
-
-}
-
+// NAVIGATION
 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+
+  .nav-items {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 80px;
-    align-items: center;
+    list-style: none;
 
-    .nav-items {  //Tady a do budoucna, pomoci SCSS se mi libi ze se CSS class zapisovat takto:
-        display: flex;
-    }
+    li {
+      margin: 0 15px;
 
-    .nav-items li {
-        list-style: none;
-        margin: 0 15px;
-    }
-
-    .nav-items li a {
-        font-size: 25px;
-        color: #000000;
-        letter-spacing: 3px;
+      a {
+        font-size: 20px;
+        color: $dark-color;
         text-decoration: none;
         text-transform: capitalize;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
     }
+  }
 
-    .nav-items li:hover a,
-    .social a:hover {
-        color: #7f00ff;
+  .social {
+    a {
+      font-size: 25px;
+      margin-left: 15px;
+      color: $dark-color;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
-
-    .social a {     //Socialni site a jejich loga pomoci Font-Awesome
-        font-size: 30px;
-        color: #000000;
-        margin: 25px 10px;
-    }
+  }
 }
 
-.wrapper {
-    display: flex;
-    width: 100%;
-    height: calc(100vh - 80px);
-    justify-content: center;
-    align-items: center;
-    padding: 0 10%;
-    overflow: hidden;
-}
+// ABOUT SECTION
+.about {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 
-.wrapper::before {       // První "splash"
-    position: absolute;
-    content: '';
-    height: 600px;
-    width: 600px;
-    border-radius: 50%;
-    left: -12%;
-    top: 40%;
-    background: linear-gradient(45deg, #7f00ff, pink);
-
-}
-
-.wrapper::after {       //Druhý "splash"
-    position: absolute;
-    content: '';
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    left: 60%;
-    top: 12%;
-    background: linear-gradient(45deg, #7f00ff, pink);
-
-}
-
-.cols {
-    width: 100%;
-}
-
-.cols0 {
-    z-index: 5;
-}
-
-.topline {
-    display: block;
-    position: relative;
-    font-size: 35px;
-    letter-spacing: 5px;
-    color: #000000;
-}
-
-.topline::after {
-    position: absolute;
-    content: '';
-    height: 4px;
-    width: 60px;
-    bottom: 10px;
-    background-color: #7f00ff;
-}
-
-h1 {
-    display: block;
-    font-size: 5em;
-    font-weight: 900;
-    color: #000000;
-}
-
-.multitext {       //Text, ktery se pomoci JS meni a ma pekny effekt    
-    color: #7f00ff;
-    text-transform: capitalize;
-}
-
-p {
-    display: block;
-    width: 90%;
-    font-size: 1.2em;
-    color: #000000;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button {        //Tlacitko, po zmacknuti vyjede pomoci JS pop-up s inputami
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: 400;
-    color: #fff;
-    background-color: #000000;
-    padding: 8px 14px;
-    margin: 40px 5px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.4);
-}
-
-button:hover {
-    color: #7f00ff;
-}
-
-// #modal-open{         Udelal jsem ted jinak, kouknout se potom a kdyztak vybrat
-//     height: 100%;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     transition: background 0.3s;
-// }
-
-input[type='submit'] {      //Tlacitko pro submitovani predesleho textu/inputu atd. 
-    font-size: 50px;
-    text-transform: uppercase;
-    color: #fff;
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background: linear-gradient(45deg, #7f00ff, pink);
-}
-
-#modal-open:hover {
-    background: #000000;
-}
-
-#contact-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-#modal-content {    //Modal menu, ve kterem jsou inputy a tlacitko pro jejich submitnuti
-    background: #efefef;
-    margin: 35px auto;
-    width: 60%;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
-    animation-name: modalSlideUp;
-    animation-duration: 1s;
-}
-
-#modal-header {
-    background: #000000;
-    color: #fff;
-    padding: 15px 30px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 30px;
-    letter-spacing: 5px;
-}
-
-#modal-header .close-modal {
-    font-size: 50px;
-    float: right;
-}
-
-#modal-header .close-modal:hover {
-    color: #7f00ff;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    transition-delay: 0.2s;
-}
-
-#modal-footer {
-    background: #000000;
-    color: #fff;
-    padding: 15px 15px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 18px;
-    letter-spacing: 3px;
-}
-
-#modal-body {
-    padding: 25px 30px;
-
-    h3 {
-        color: #000000;
-        text-transform: uppercase;
-        font-size: 35px;
-        text-align: center;
-    }
-}
-
-.form-group {
-    width: 75%;
-    margin: 20px 0;
-    margin-left: 12.5%;
-
-    label {
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
-
-    input,
-    textarea {
-        width: 100%;
-        border: none;
-        border-radius: 10px;
-        font-size: 20px;
-        padding: 0 10px;
-    }
-}
-
-input[type='submit'] {
-    font-size: 15px;
-    width: 75%;
-    margin-left: 12.5%;
-    font-weight: bolder;
-}
-
-input[type='submit']:hover {
-    color: #000000;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    transition-delay: 0.2s;
-}
-
-@keyframes modalSlideUp {
-    0% {
-        transform: translateY(1500px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.university-container {
+  .about-content {
     display: flex;
     flex-wrap: wrap;
-}
-
-.university {
-    flex: 0 0 50%;
-    display: flex;
+    gap: 40px;
     align-items: center;
-    margin-bottom: 10px;
-    margin-top: 40px;
     justify-content: center;
-    gap: 20px;
+  }
+
+  .about-text {
+    flex: 1 1 500px;
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: $primary-color;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+  }
+
+  .about-image {
+    flex: 1 1 300px;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  }
 }
 
-.university img {
-   max-width: 250px;
-   height: auto;
-   margin-left: 10px;
-   margin-right: 20px;
-}
-
-.university-info {
-    margin-left: 20px;
-
-    a{
-        text-decoration: none;
-        color: #000000;
-    }
-
-    h2{
-        text-align: center;
-    }
-
-    a:hover{
-        color: #7f00ff;
-    }
-
-    p{
-        margin: 20px;
-    }
-}
-
+// FOOTER
 footer {
-    padding: 20px;
+  background-color: $dark-color;
+  text-align: center;
+  padding: 15px 0;
 
-    p{
-        margin-left: 60px;
-        text-align: center;
+  p {
+    color: #fff;
+    font-size: 16px;
+  }
+}
+
+// RESPONSIVE
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+
+    .nav-items {
+      flex-direction: column;
+      margin-top: 10px;
+
+      li {
+        margin: 10px 0;
+      }
     }
 
-    a:hover{
-        color: #7f00ff;
+    .social {
+      margin-top: 10px;
     }
-
-    a{
-        text-decoration: none;
-        color: #000000;
-    }
-}
-
-.flex-container {
-    padding-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 85%;
-    margin: 0 auto;
-}
-  
-.text-container {
-    padding-top: 20px;
-    padding-right: 20px;
-}
-  
-.image-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-  
-.image-container img {
-    width: 375px;
-    height: 275px;
-    margin-left: 10px;
+  }
 }
