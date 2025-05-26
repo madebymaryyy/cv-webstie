@@ -264,12 +264,12 @@ input[type=submit]:hover {
     transform: translateY(0);
   }
 }
-.project-container {
+.university-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.project {
+.university {
   flex: 0 0 50%;
   display: flex;
   align-items: center;
@@ -279,27 +279,27 @@ input[type=submit]:hover {
   gap: 20px;
 }
 
-.project img {
+.university img {
   max-width: 250px;
   height: auto;
   margin-left: 10px;
   margin-right: 20px;
 }
 
-.project-info {
+.university-info {
   margin-left: 20px;
 }
-.project-info a {
+.university-info a {
   text-decoration: none;
   color: #000000;
 }
-.project-info h2 {
+.university-info h2 {
   text-align: center;
 }
-.project-info a:hover {
+.university-info a:hover {
   color: #7f00ff;
 }
-.project-info p {
+.university-info p {
   margin: 20px;
 }
 
@@ -342,4 +342,40 @@ footer a {
   width: 375px;
   height: 275px;
   margin-left: 10px;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+.aboutme-page .about .about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  gap: 50px;
+}
+.aboutme-page .about .about-text {
+  flex: 1;
+}
+.aboutme-page .about .about-text h1 {
+  font-size: 3.5rem;
+  color: #7f00ff;
+}
+.aboutme-page .about .about-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+}
+.aboutme-page .about .about-image {
+  flex: 1;
+}
+.aboutme-page .about .about-image img {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(127, 0, 255, 0.3);
+}
+.aboutme-page footer {
+  text-align: center;
+  padding: 20px;
+  color: #7f00ff;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=styles.css.map */
